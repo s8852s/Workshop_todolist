@@ -1,13 +1,18 @@
 // TO DO
-//add_task
 document.addEventListener("DOMContentLoaded", function(){
-  //add_task
-  document.querySelector(".addBtn").addEventListener("click", function(){
-    let task = document.getElementById("input").value
-    if ( task != null ){
-    let li = document.createElement("li");
-    li.innerHTML = (`${task}<span class='close'>x</span>`)
-    document.querySelector("ul").appendChild(li)
-    }
-  })
+  //Complete_task_add_checked
+  let liList = document.querySelectorAll("li");
+  for (let lis of liList){
+    lis.addEventListener("click", function(){
+      this.classList.toggle("checked");
+    })
+  }
+  let spanList = document.querySelectorAll("li>span");
+  for (let spans of spanList){
+    spans.addEventListener("click", function(){
+      spans.parentNode.remove();
+    })
+  }
+  // add_task
+  
 })
