@@ -14,5 +14,25 @@ document.addEventListener("DOMContentLoaded", function(){
     })
   }
   // add_task
-  
+  document.querySelector(".addBtn").addEventListener("click", function(){
+    let task = document.getElementById("input").value;
+    if ( task != null ){
+      let newLi = document.createElement("li");
+      newLi.textContent = `${task}`;
+      let newSpan = document.createElement("span");
+      newSpan.textContent = "x";
+      newSpan.classList = "close";
+      newLi.insertAdjacentElement("beforeend", newSpan)
+      document.querySelector("ul").appendChild(newLi);
+      
+      newLi.addEventListener("click", function(){
+        this.classList.toggle("checked");
+       
+      })
+      newSpan.addEventListener("click", function(){
+        this.parentNode.remove();
+      })
+
+    }
+  })
 })
